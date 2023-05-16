@@ -16,16 +16,16 @@ const firebaseConfig = {
 
 // Iniciar Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(App);
+const auth = getAuth(app);
 
-registro.addEventLstener('click', (e) => {
+registro.addEventListener('click', (e) => {
 	var email = document.getElementById('emailreg').value;
 	var password = document.getElementById('passwordreg').value;
 	
 	createUserWithEmailAndPassword(auth, email, password).then(cred => {
 	alert ("usuario creado");
-    sendEmailVerificationEmail(auth.currentUser).then(() => {
-        alert('Se ha enviado el correco electronico de verificacion');
+    sendEmailVerification(auth.currentUser).then(() => {
+        alert('	Se ha enviado el correco electronico de verificacion');
     });
 	}).catch (error => {
 		const errorCode = error.code;
